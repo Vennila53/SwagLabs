@@ -1,0 +1,55 @@
+import json
+
+# Load JSON data
+data = '''
+{"name": "Successfull Login", "status": "broken", "statusDetails": {"message": "\nYou can implement step definitions for undefined steps with these snippets:\n\n@given(u'I am on the Demo Login Page')\ndef step_impl(context):\n    raise NotImplementedError(u'STEP: Given I am on the Demo Login Page')\n\n"}, "steps": [{"name": "Given I am on the Demo Login Page", "status": "broken", "statusDetails": {"message": "\nYou can implement step definitions for undefined steps with these snippets:\n\n@given(u'I am on the Demo Login Page')\ndef step_impl(context):\n    raise NotImplementedError(u'STEP: Given I am on the Demo Login Page')\n\n"}, "start": 1715360106320, "stop": 1715360106321}, {"name": "When I fill the account information for account StandardUser into the Username field and the Password field", "status": "broken", "statusDetails": {"message": "\nYou can implement step definitions for undefined steps with these snippets:\n\n@when(u'I fill the account information for account StandardUser into the Username field and the Password field')\ndef step_impl(context):\n    raise NotImplementedError(u'STEP: When I fill the account information for account StandardUser into the Username field and the Password field')\n\n"}, "start": 1715360106322, "stop": 1715360106322}, {"name": "And I click the Login Button", "status": "broken", "statusDetails": {"message": "\nYou can implement step definitions for undefined steps with these snippets:\n\n@when(u'I click the Login Button')\ndef step_impl(context):\n    raise NotImplementedError(u'STEP: When I click the Login Button')\n\n"}, "start": 1715360106323, "stop": 1715360106323}, {"name": "Then I am redirected to the Demo Main Page", "status": "broken", "statusDetails": {"message": "\nYou can implement step definitions for undefined steps with these snippets:\n\n@then(u'I am redirected to the Demo Main Page')\ndef step_impl(context):\n    raise NotImplementedError(u'STEP: Then I am redirected to the Demo Main Page')\n\n"}, "start": 1715360106323, "stop": 1715360106323}, {"name": "And I verify the App Logo exists", "status": "broken", "statusDetails": {"message": "\nYou can implement step definitions for undefined steps with these snippets:\n\n@then(u'I verify the App Logo exists')\ndef step_impl(context):\n    raise NotImplementedError(u'STEP: Then I verify the App Logo exists')\n\n"}, "start": 1715360106323, "stop": 1715360106323}], "start": 1715360106313, "stop": 1715360106323, "uuid": "9ae3ca9d-557c-4070-b28a-79c4685fe17d", "historyId": "026a4d5cdddd6126c5a3e4a9848bba46", "fullName": "saucedemo Login: Successfull Login", "labels": [{"name": "severity", "value": "normal"}, {"name": "feature", "value": "saucedemo Login"}, {"name": "framework", "value": "behave"}, {"name": "language", "value": "cpython3"}]}
+'''
+
+json_data = json.loads(data)
+
+# Generate HTML content
+html_content = f'''
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Results</title>
+    <style>
+        table {{
+            width: 100%;
+            border-collapse: collapse;
+        }}
+        th, td {{
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }}
+        th {{
+            background-color: #f2f2f2;
+        }}
+    </style>
+</head>
+<body>
+    <h1>Test Results</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Status Details</th>
+        </tr>
+        <tr>
+            <td>{json_data['name']}</td>
+            <td>{json_data['status']}</td>
+            <td>{json_data['statusDetails']['message']}</td>
+        </tr>
+    </table>
+</body>
+</html>
+'''
+
+# Write HTML content to a file
+with open('test_results.html', 'w') as file:
+    file.write(html_content)
+
+print("HTML report generated successfully.")
